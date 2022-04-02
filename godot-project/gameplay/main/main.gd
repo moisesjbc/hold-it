@@ -6,7 +6,7 @@ func _ready():
 
 
 func _on_player_player_out_of_screen():
-	if not $GUI/game_over.visible:
+	if $GUI/game_over.visible == false:
 		$GUI/game_over.display()
 
 
