@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _ready():
+	get_tree().paused = false
 	$walls/left_wall/player.main_scene = self
 
 
