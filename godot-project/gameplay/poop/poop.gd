@@ -26,6 +26,7 @@ func divide():
 	for child in top_poop.get_children():
 		if child.name != 'collision_timer':
 			child.scale.y = 0.5 * $sprite.scale.y
+			child.scale.x = 0.5 * $sprite.scale.x
 	get_parent().add_child(top_poop)
 	top_poop.global_position = $ref_points/top_point.global_position
 
@@ -35,6 +36,7 @@ func divide():
 	for child in bottom_poop.get_children():
 		if child.name != 'collision_timer':
 			child.scale.y = 0.5 * $sprite.scale.y
+			child.scale.x = 0.5 * $sprite.scale.x
 	get_parent().add_child(bottom_poop)
 	bottom_poop.global_position = $ref_points/bottom_point.global_position
 
