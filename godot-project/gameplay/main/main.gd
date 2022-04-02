@@ -11,3 +11,7 @@ func _on_player_player_out_of_screen():
 
 func _on_game_over_restart_game():
 	get_tree().reload_current_scene()
+
+
+func _on_poop_reached_bottom(damage):
+	$GUI/dump_bar.add_poop_damage(damage)
