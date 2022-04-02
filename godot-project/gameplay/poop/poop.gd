@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 300
+var speed = 150
 var velocity = Vector2(0, 1)
 var poop_scene
 
