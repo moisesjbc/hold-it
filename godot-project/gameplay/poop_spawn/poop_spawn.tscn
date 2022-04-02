@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 155.278, 113, 0, 0, 0, 0, 453.51, 109.781, 0, 0, 0, 0, 839.158, 110 )
+"points": PoolVector2Array( 0, 0, 0, 0, 205.753, 114, 0, 0, 0, 0, 453.51, 109.781, 0, 0, 0, 0, 774.522, 115 )
 }
 
 [node name="poop_spawn" type="Path2D"]
