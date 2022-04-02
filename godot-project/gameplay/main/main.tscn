@@ -11,6 +11,7 @@
 script = ExtResource( 3 )
 
 [node name="walls" type="Node2D" parent="."]
+position = Vector2( 0, -32 )
 
 [node name="left_wall" parent="walls" instance=ExtResource( 1 )]
 position = Vector2( 11, 400 )
@@ -19,7 +20,8 @@ position = Vector2( 11, 400 )
 position = Vector2( 59, 8 )
 
 [node name="right_wall" parent="walls" instance=ExtResource( 1 )]
-position = Vector2( 1259, 400 )
+position = Vector2( 1243, 400 )
+scale = Vector2( -1, 1 )
 
 [node name="poop_spawn" parent="." instance=ExtResource( 4 )]
 position = Vector2( -164.258, -136 )
