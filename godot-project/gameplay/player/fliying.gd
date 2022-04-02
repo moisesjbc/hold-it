@@ -10,5 +10,4 @@ func exit():
 	player.disconnect('player_stopped', self, '_on_player_stopped')
 
 func _on_player_stopped():
-	print('ON PLAYER STOPPPED')
 	emit_signal('set_state', 'idle')
