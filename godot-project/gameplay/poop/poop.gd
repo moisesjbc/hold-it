@@ -20,27 +20,21 @@ func _process(delta):
 		queue_free()
 
 func divide():
-	var top_poop = poop_scene.instance()
-	top_poop.main = main
-	top_poop.damage = damage * 0.33
-	for child in top_poop.get_children():
-		if child.name != 'collision_timer':
-			child.scale.y = 0.5 * $sprite.scale.y
-			child.scale.x = 0.5 * $sprite.scale.x
-	get_parent().add_child(top_poop)
-	top_poop.global_position = $ref_points/top_point.global_position
-
-	var bottom_poop = poop_scene.instance()
-	bottom_poop.main = main
-	bottom_poop.damage = damage * 0.33
-	for child in bottom_poop.get_children():
-		if child.name != 'collision_timer':
-			child.scale.y = 0.5 * $sprite.scale.y
-			child.scale.x = 0.5 * $sprite.scale.x
-	get_parent().add_child(bottom_poop)
-	bottom_poop.global_position = $ref_points/bottom_point.global_position
-
+	instance_poop_at($ref_points/top_point)
+	instance_poop_at($ref_points/bottom_point)
 	queue_free()
+
+func instance_poop_at(ref_point):
+	var new_poop = poop_scene.instance()
+	new_poop.main = main
+	new_poop.damage = damage * 0.33
+	new_poop.speed = speed
+	for child in new_poop.get_children():
+		if child.name != 'collision_timer':
+			child.scale.y = 0.5 * $sprite.scale.y
+			child.scale.x = 0.5 * $sprite.scale.x
+	get_parent().add_child(new_poop)
+	new_poop.global_position = ref_point.global_position
 
 
 func _on_collision_timer_timeout():
