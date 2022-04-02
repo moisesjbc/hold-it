@@ -7,6 +7,7 @@ signal player_stopped
 var last_parent = null
 signal player_out_of_screen
 var changing_parent = false
+var acid_explosion_scene = preload("res://gameplay/acid_explosion/acid_explosion.tscn")
 
 func _ready():
 	last_parent = get_parent()
@@ -33,6 +34,10 @@ func atach_to_new_parent(new_parent):
 	changing_parent = false
 
 func _physics_process(delta):
+	if Input.is_action_just_released("fire"):
+		var acid_explosion = acid_explosion_scene.instance()
+		main_scene.add_child(acid_explosion)
+		acid_explosion.global_position = global_position
 	if speed > 0:
 		var collision = move_and_collide(velocity * speed * delta)
 		if collision and collision.collider != last_parent:
@@ -42,3 +47,5 @@ func _physics_process(delta):
 func _on_visibility_notifier_screen_exited():
 	if not changing_parent:
 		emit_signal('player_out_of_screen')
+		
+
