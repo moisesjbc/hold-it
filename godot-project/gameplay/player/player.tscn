@@ -25,6 +25,9 @@ script = ExtResource( 3 )
 [node name="idle" type="Node" parent="state_machine"]
 script = ExtResource( 2 )
 
+[node name="ref_shooting_line" type="Line2D" parent="state_machine/idle"]
+width = 5.0
+
 [node name="flying" type="Node" parent="state_machine"]
 script = ExtResource( 4 )
 
