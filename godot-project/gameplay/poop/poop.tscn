@@ -21,10 +21,10 @@ shape = SubResource( 1 )
 [node name="ref_points" type="Node2D" parent="."]
 
 [node name="top_point" type="Position2D" parent="ref_points"]
-position = Vector2( 0, -122 )
+position = Vector2( 1, -67 )
 
 [node name="bottom_point" type="Position2D" parent="ref_points"]
-position = Vector2( 5, 114 )
+position = Vector2( 1, 73 )
 
 [node name="collision_timer" type="Timer" parent="."]
 wait_time = 0.2
