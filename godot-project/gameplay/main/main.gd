@@ -1,9 +1,12 @@
 extends Node2D
 
+var player
 
 func _ready():
 	get_tree().paused = false
+	player = $walls/left_wall/player
 	$walls/left_wall/player.main_scene = self
+	$poop_spawn.player = player
 
 
 func _on_player_player_out_of_screen():

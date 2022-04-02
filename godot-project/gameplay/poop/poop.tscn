@@ -8,6 +8,8 @@ radius = 23.0
 height = 180.0
 
 [node name="poop" type="KinematicBody2D" groups=["poops"]]
+collision_layer = 4
+collision_mask = 9
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]

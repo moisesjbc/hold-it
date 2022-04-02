@@ -15,18 +15,19 @@ func _ready():
 func move_to(target_pos):
 	speed = 1500
 	velocity = (target_pos - global_position).normalized()
-	atach_to_new_parent(main_scene)
+	attach_to_new_parent(main_scene)
 
 func stop(new_parent):
 	speed = 0
-	atach_to_new_parent(new_parent)
+	attach_to_new_parent(new_parent)
 	emit_signal('player_stopped')
 	
-func atach_to_new_parent(new_parent):
+func attach_to_new_parent(new_parent, divide=true):
 	changing_parent = true
-	last_parent = get_parent()
-	if last_parent.is_in_group('poops'):
-		last_parent.divide()
+	if divide:
+		last_parent = get_parent()
+		if divide and last_parent.is_in_group('poops'):
+			last_parent.divide()
 	var _global_position = global_position
 	get_parent().remove_child(self)
 	new_parent.add_child(self)
@@ -36,6 +37,7 @@ func atach_to_new_parent(new_parent):
 func _physics_process(delta):
 	if Input.is_action_just_released("fire"):
 		var acid_explosion = acid_explosion_scene.instance()
+		acid_explosion.player = self
 		main_scene.add_child(acid_explosion)
 		acid_explosion.global_position = global_position
 	if speed > 0:
