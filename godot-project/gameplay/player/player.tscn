@@ -27,3 +27,9 @@ script = ExtResource( 2 )
 
 [node name="flying" type="Node" parent="state_machine"]
 script = ExtResource( 4 )
+
+[node name="visibility_notifier" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.5, 1.90735e-06 )
+scale = Vector2( 3.25, 3.2 )
+
+[connection signal="screen_exited" from="visibility_notifier" to="." method="_on_visibility_notifier_screen_exited"]
