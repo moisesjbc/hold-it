@@ -30,6 +30,4 @@ func _physics_process(delta):
 	if speed > 0:
 		var collision = move_and_collide(velocity * speed * delta)
 		if collision and collision.collider != last_parent:
-			print('collision.collider', collision.collider)
-			print('last_parent', last_parent)
 			stop(collision.collider)
