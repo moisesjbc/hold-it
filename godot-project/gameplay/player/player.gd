@@ -21,6 +21,8 @@ func stop(new_parent):
 	
 func atach_to_new_parent(new_parent):
 	last_parent = get_parent()
+	if last_parent.is_in_group('poops'):
+		last_parent.divide()
 	var _global_position = global_position
 	get_parent().remove_child(self)
 	new_parent.add_child(self)

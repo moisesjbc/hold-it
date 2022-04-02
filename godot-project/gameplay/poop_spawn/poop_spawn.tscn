@@ -15,7 +15,7 @@ script = ExtResource( 1 )
 
 [node name="path_follow" type="PathFollow2D" parent="."]
 position = Vector2( 155.278, 113 )
-rotation = -0.00438846
+rotation = -0.0107914
 
 [node name="spawn_timer" type="Timer" parent="."]
 autostart = true
