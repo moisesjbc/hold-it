@@ -15,3 +15,7 @@ func _on_game_over_restart_game():
 
 func _on_poop_reached_bottom(damage):
 	$GUI/dump_bar.add_poop_damage(damage)
+
+
+func _on_dump_bar_dump_bar_full():
+	$GUI/game_over.display()

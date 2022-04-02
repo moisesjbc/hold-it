@@ -33,3 +33,4 @@ visible = false
 
 [connection signal="player_out_of_screen" from="walls/left_wall/player" to="." method="_on_player_player_out_of_screen"]
 [connection signal="restart_game" from="GUI/game_over" to="." method="_on_game_over_restart_game"]
+[connection signal="dump_bar_full" from="GUI/dump_bar" to="." method="_on_dump_bar_dump_bar_full"]

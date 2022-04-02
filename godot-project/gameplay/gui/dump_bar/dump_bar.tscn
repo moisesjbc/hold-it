@@ -14,3 +14,5 @@ margin_left = 390.0
 margin_right = 890.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 500, 30 )
+
+[connection signal="value_changed" from="progress_bar" to="." method="_on_progress_bar_value_changed"]
