@@ -1,0 +1,35 @@
+extends KinematicBody2D
+
+var speed = 0
+var velocity
+var main_scene
+signal player_stopped
+var last_parent = null
+
+func _ready():
+	last_parent = get_parent()
+
+func move_to(target_pos):
+	speed = 1500
+	velocity = (target_pos - global_position).normalized()
+	atach_to_new_parent(main_scene)
+
+func stop(new_parent):
+	speed = 0
+	atach_to_new_parent(new_parent)
+	emit_signal('player_stopped')
+	
+func atach_to_new_parent(new_parent):
+	last_parent = get_parent()
+	var _global_position = global_position
+	get_parent().remove_child(self)
+	new_parent.add_child(self)
+	global_position = _global_position
+
+func _physics_process(delta):
+	if speed > 0:
+		var collision = move_and_collide(velocity * speed * delta)
+		if collision and collision.collider != last_parent:
+			print('collision.collider', collision.collider)
+			print('last_parent', last_parent)
+			stop(collision.collider)
