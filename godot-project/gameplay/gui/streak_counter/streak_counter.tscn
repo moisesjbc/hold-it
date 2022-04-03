@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/Ubuntu-B.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://gameplay/gui/streak_counter/streak_counter.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="streak_counter" type="MarginContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+script = ExtResource( 2 )
+
+[node name="panel" type="Panel" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 260.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 250, 40 )
+
+[node name="label" type="Label" parent="panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = " Food Streak: "
+valign = 1

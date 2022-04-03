@@ -10,6 +10,7 @@ var changing_parent = false
 var acid_explosion_scene = preload("res://gameplay/acid_explosion/acid_explosion.tscn")
 var food_streak = 0
 var last_attached_parent_was_food: bool = false
+signal food_streak_changed
 
 func _ready():
 	last_parent = get_parent()
@@ -43,6 +44,7 @@ func attach_to_new_parent(new_parent, divide=true):
 				create_acid_explosion()
 		else:
 			food_streak = 0
+		emit_signal('food_streak_changed', food_streak)
 		last_attached_parent_was_food = new_parent.is_in_group('poops')
 
 
