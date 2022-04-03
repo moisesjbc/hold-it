@@ -8,6 +8,8 @@ var last_parent = null
 signal player_out_of_screen
 var changing_parent = false
 var acid_explosion_scene = preload("res://gameplay/acid_explosion/acid_explosion.tscn")
+var food_streak = 0
+var last_attached_parent_was_food: bool = false
 
 func _ready():
 	last_parent = get_parent()
@@ -34,17 +36,28 @@ func attach_to_new_parent(new_parent, divide=true):
 	new_parent.add_child(self)
 	global_position = _global_position
 	changing_parent = false
+	if divide and new_parent.name != 'main':
+		if new_parent.is_in_group('poops') and last_attached_parent_was_food:
+			food_streak += 1
+			if food_streak > 2:
+				create_acid_explosion()
+		else:
+			food_streak = 0
+		last_attached_parent_was_food = new_parent.is_in_group('poops')
+
 
 func _physics_process(delta):
-	if Input.is_action_just_released("fire"):
-		var acid_explosion = acid_explosion_scene.instance()
-		acid_explosion.player = self
-		main_scene.add_child(acid_explosion)
-		acid_explosion.global_position = global_position
 	if speed > 0:
 		var collision = move_and_collide(velocity * speed * delta)
 		if collision and collision.collider != last_parent:
 			stop(collision.collider)
+			
+
+func create_acid_explosion():
+	var acid_explosion = acid_explosion_scene.instance()
+	acid_explosion.player = self
+	main_scene.add_child(acid_explosion)
+	acid_explosion.global_position = global_position
 
 
 func _on_visibility_notifier_screen_exited():
