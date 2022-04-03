@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/menu_title/menu_title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gameplay/gui/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/how_to_play_menu/how_to_play_menu.gd" type="Script" id=4]
+[ext_resource path="res://gui/how_to_play_menu/instruction/instruction.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gameplay/player/player.png" type="Texture" id=6]
+[ext_resource path="res://gameplay/poop/carrot.png" type="Texture" id=7]
+
+[node name="how_to_play_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="previous_button" parent="." instance=ExtResource( 1 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -80.0
+margin_right = 200.0
+margin_bottom = -40.0
+rect_min_size = Vector2( 200, 0 )
+text = "< Previous"
+
+[node name="next_buton" parent="." instance=ExtResource( 1 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -88.0
+margin_right = 0.0
+margin_bottom = -48.0
+rect_min_size = Vector2( 200, 0 )
+text = "Next >"
+
+[node name="menu_title" parent="." instance=ExtResource( 2 )]
+anchor_right = 1.0
+margin_right = 0.0
+margin_bottom = 34.0
+text = "HOW TO PLAY"
+align = 2
+
+[node name="GUI" parent="." instance=ExtResource( 3 )]
+
+[node name="steps" type="Node2D" parent="."]
+
+[node name="welcome" type="Node2D" parent="steps"]
+visible = false
+
+[node name="instruction" parent="steps/welcome" instance=ExtResource( 5 )]
+
+[node name="food" type="Node2D" parent="steps"]
+visible = false
+
+[node name="food_sprite" type="Sprite" parent="steps/food"]
+position = Vector2( 401, 346 )
+texture = ExtResource( 7 )
+
+[node name="food_sprite2" type="Sprite" parent="steps/food"]
+position = Vector2( 916, 158 )
+texture = ExtResource( 7 )
+
+[node name="food_sprite3" type="Sprite" parent="steps/food"]
+position = Vector2( 306, -54 )
+texture = ExtResource( 7 )
+
+[node name="instruction" parent="steps/food" instance=ExtResource( 5 )]
+margin_left = 459.0
+margin_top = 345.0
+margin_right = 796.0
+margin_bottom = 384.0
+text = "1. Food will keep falling..."
+
+[node name="instruction2" parent="steps/food" instance=ExtResource( 5 )]
+margin_left = 260.0
+margin_top = 574.0
+margin_right = 1051.0
+margin_bottom = 682.0
+text = "2. ...and fill the bar below, which represents 
+the host's INEVITABLE desire to evacuate.
+Your goal is to resist the longer before it reaches 100%"
+
+[node name="player" type="Node2D" parent="steps"]
+visible = false
+
+[node name="player_sprite" type="Sprite" parent="steps/player"]
+position = Vector2( 87, 415 )
+texture = ExtResource( 6 )
+
+[node name="instruction" parent="steps/player" instance=ExtResource( 5 )]
+margin_left = -116.0
+margin_top = 395.0
+margin_right = 579.0
+margin_bottom = 466.0
+text = "< This is you"
+
+[node name="movement" type="Node2D" parent="steps"]
+visible = false
+
+[node name="player_sprite" type="Sprite" parent="steps/movement"]
+position = Vector2( 87, 415 )
+texture = ExtResource( 6 )
+
+[node name="ref_line" type="Line2D" parent="steps/movement"]
+position = Vector2( -5.78761, 137.974 )
+scale = Vector2( 1.0531, 0.657895 )
+points = PoolVector2Array( 114, 410, 330, 306 )
+width = 5.0
+default_color = Color( 0.419608, 1, 0.4, 1 )
+
+[node name="instruction" parent="steps/movement" instance=ExtResource( 5 )]
+margin_left = 46.0
+margin_top = 389.0
+margin_right = 741.0
+margin_bottom = 460.0
+text = "Move the MOUSE to aim 
+and CLICK to shoot"
+
+[connection signal="pressed" from="previous_button" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="next_buton" to="." method="_on_next_buton_pressed"]

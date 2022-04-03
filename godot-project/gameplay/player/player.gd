@@ -14,6 +14,8 @@ signal food_streak_changed
 
 func _ready():
 	last_parent = get_parent()
+	if get_parent().name != 'main':
+		$state_machine.disabled = true
 
 func move_to(target_pos):
 	speed = 1500

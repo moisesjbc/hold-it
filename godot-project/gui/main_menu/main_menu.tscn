@@ -22,7 +22,7 @@ rect_min_size = Vector2( 400, 400 )
 
 [node name="menu_title" parent="center_container/vbox_container" instance=ExtResource( 1 )]
 margin_right = 400.0
-margin_bottom = 312.0
+margin_bottom = 268.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "HOLD IT!"
@@ -30,10 +30,16 @@ align = 1
 valign = 1
 
 [node name="play_button" parent="center_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 272.0
+margin_right = 400.0
+margin_bottom = 312.0
+text = "Play"
+
+[node name="how_to_play_button" parent="center_container/vbox_container" instance=ExtResource( 2 )]
 margin_top = 316.0
 margin_right = 400.0
 margin_bottom = 356.0
-text = "Play"
+text = "How to play"
 
 [node name="credits_menu_button" parent="center_container/vbox_container" instance=ExtResource( 2 )]
 margin_top = 360.0
@@ -42,4 +48,5 @@ margin_bottom = 400.0
 text = "Credits"
 
 [connection signal="pressed" from="center_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="center_container/vbox_container/how_to_play_button" to="." method="_on_how_to_play_button_pressed"]
 [connection signal="pressed" from="center_container/vbox_container/credits_menu_button" to="." method="_on_credits_menu_button_pressed"]
