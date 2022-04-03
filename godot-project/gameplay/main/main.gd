@@ -9,6 +9,8 @@ func _ready():
 	player.main_scene = self
 	$poop_spawn.player = player
 
+func _exit_tree():
+	player.queue_free()
 
 func _on_player_player_out_of_screen():
 	if $GUI/game_over.visible == false:
