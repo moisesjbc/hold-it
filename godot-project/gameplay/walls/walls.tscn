@@ -9,5 +9,5 @@ position = Vector2( 0, -32 )
 position = Vector2( 11, 400 )
 
 [node name="right_wall" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1243, 400 )
+position = Vector2( 1267, 400 )
 scale = Vector2( -1, 1 )

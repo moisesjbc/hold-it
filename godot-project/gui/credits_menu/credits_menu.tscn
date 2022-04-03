@@ -1,0 +1,129 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gui/menu_title/menu_title.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/credits_menu/credits_menu.gd" type="Script" id=3]
+[ext_resource path="res://fonts/Ubuntu-B.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 4 )
+
+[node name="credits_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="margin_container" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 70
+custom_constants/margin_top = 20
+custom_constants/margin_left = 70
+custom_constants/margin_bottom = 20
+
+[node name="vbox_container" type="VBoxContainer" parent="margin_container"]
+margin_left = 70.0
+margin_top = 20.0
+margin_right = 1210.0
+margin_bottom = 700.0
+
+[node name="menu_title" parent="margin_container/vbox_container" instance=ExtResource( 1 )]
+margin_right = 1140.0
+margin_bottom = 34.0
+text = "CREDITS"
+align = 1
+
+[node name="credits_panel" type="Panel" parent="margin_container/vbox_container"]
+margin_top = 38.0
+margin_right = 1140.0
+margin_bottom = 636.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="credits_text" type="RichTextLabel" parent="margin_container/vbox_container/credits_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]
+[color=#FFB563]Idea and game design[/color]
+[color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
+
+[center]
+[color=#FFB563]Programming[/color]
+[color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
+[color=white]Licensed under [url=https://www.gnu.org/licenses/gpl-3.0.html]GPL v3[/url][/color]
+
+[center]
+[color=#FFB563]Graphics[/color]
+[color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
+[color=white]Licensed under [url=http://creativecommons.org/licenses/by-nc-sa/4.0/]Attribution-NonCommercial-ShareAlike 4.0 International[/url][/color]
+
+[center]
+[color=#FFB563]SFX[/color]
+[color=white]Moisés J. Bonilla Caraballo (moisesjbc) - [url=https://moisesjose.com]https://moisesjose.com[/url][/color]
+[color=white]Licensed under [url=http://creativecommons.org/licenses/by-nc-sa/4.0/]Attribution-NonCommercial-ShareAlike 4.0 International[/url][/color]
+
+[color=#FFB563]Fonts[/color]
+[color=white]Ubuntu font - [url=https://design.ubuntu.com/font/]https://design.ubuntu.com/font/[/url][/color]
+
+[color=#FFB563]Software used[/color]
+[color=white]Godot engine - [url=https://godotengine.org/]https://godotengine.org/[/url]
+Gimp - [url=https://www.gimp.org/]https://www.gimp.org/[/url]
+sfxr - [url=http://www.drpetter.se/project_sfxr.html]http://www.drpetter.se/project_sfxr.html[/url]
+[/color]
+
+[color=#FFB563]Thanks[/color]
+The Ludum Dare organizers - [url=https://ldjam.com/]https://ldjam.com/[/url]
+The Island Jam VIII organizers - [url=https://itch.io/jam/island-jam-viii]https://itch.io/jam/island-jam-viii[/url][/color]
+Fabían (Island Jam VIII organizer) for the idea about the acid explosion
+
+[color=#FFB563]Made for [url=https://ldjam.com/events/ludum-dare/50]Ludum Dare #50[/url] and [url=https://itch.io/jam/island-jam-viii]Island Jam VIII[/url][/color]
+(Theme: \"Delay the inevitable\")
+[/center]"
+text = "
+Idea and game design
+Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
+
+
+Programming
+Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
+Licensed under GPL v3
+
+
+Graphics
+Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
+Licensed under Attribution-NonCommercial-ShareAlike 4.0 International
+
+
+SFX
+Moisés J. Bonilla Caraballo (moisesjbc) - https://moisesjose.com
+Licensed under Attribution-NonCommercial-ShareAlike 4.0 International
+
+Fonts
+Ubuntu font - https://design.ubuntu.com/font/
+
+Software used
+Godot engine - https://godotengine.org/
+Gimp - https://www.gimp.org/
+sfxr - http://www.drpetter.se/project_sfxr.html
+
+
+Thanks
+The Ludum Dare organizers - https://ldjam.com/
+The Island Jam VIII organizers - https://itch.io/jam/island-jam-viii[/color]
+Fabían (Island Jam VIII organizer) for the idea about the acid explosion
+
+Made for Ludum Dare #50 and Island Jam VIII
+(Theme: \"Delay the inevitable\")
+"
+
+[node name="main_menu_button" parent="margin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 640.0
+margin_right = 1140.0
+margin_bottom = 680.0
+text = "Go to main menu"
+
+[connection signal="meta_clicked" from="margin_container/vbox_container/credits_panel/credits_text" to="." method="_on_credits_text_meta_clicked"]
+[connection signal="pressed" from="margin_container/vbox_container/main_menu_button" to="." method="_on_main_menu_button_pressed"]
