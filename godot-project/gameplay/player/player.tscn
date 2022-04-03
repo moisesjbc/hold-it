@@ -5,7 +5,7 @@
 [ext_resource path="res://gameplay/player/state_machine.gd" type="Script" id=3]
 [ext_resource path="res://gameplay/player/fliying.gd" type="Script" id=4]
 [ext_resource path="res://gameplay/player/player.gd" type="Script" id=5]
-[ext_resource path="res://gameplay/player/jump.wav" type="AudioStream" id=6]
+[ext_resource path="res://gameplay/player/shoot.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 27.0
@@ -38,5 +38,6 @@ scale = Vector2( 2.775, 2.75 )
 
 [node name="jump_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
+volume_db = -5.0
 
 [connection signal="screen_exited" from="visibility_notifier" to="." method="_on_visibility_notifier_screen_exited"]
