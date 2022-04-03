@@ -4,8 +4,9 @@ var player
 
 func _ready():
 	get_tree().paused = false
-	player = $walls/left_wall/player
-	$walls/left_wall/player.main_scene = self
+	player = $player
+	player.attach_to_new_parent(get_tree().get_root().get_node('walls').get_node('left_wall'), false)
+	player.main_scene = self
 	$poop_spawn.player = player
 
 

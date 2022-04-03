@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stomach_wall.png-d70fae5ab8769b91b55b1292a4efb0b3.stex"
+path="res://.import/stomach_wall.png-0d7c3c54e2b7fd9fd28dead73164ee17.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gameplay/wall/stomach_wall.png"
-dest_files=[ "res://.import/stomach_wall.png-d70fae5ab8769b91b55b1292a4efb0b3.stex" ]
+source_file="res://gameplay/walls/wall/stomach_wall.png"
+dest_files=[ "res://.import/stomach_wall.png-0d7c3c54e2b7fd9fd28dead73164ee17.stex" ]
 
 [params]
 

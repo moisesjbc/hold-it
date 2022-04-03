@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://gui/menu_title/menu_title.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/main_menu/main_menu.gd" type="Script" id=3]
+
+[node name="main_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="vbox_container" type="VBoxContainer" parent="center_container"]
+margin_left = 390.0
+margin_top = 160.0
+margin_right = 890.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 400, 400 )
+
+[node name="menu_title" parent="center_container/vbox_container" instance=ExtResource( 1 )]
+margin_right = 500.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "HOLD IT!"
+align = 1
+valign = 1
+
+[node name="play_button" parent="center_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 360.0
+margin_right = 500.0
+margin_bottom = 400.0
+text = "PLAY"
+
+[connection signal="pressed" from="center_container/vbox_container/play_button" to="." method="_on_play_button_pressed"]

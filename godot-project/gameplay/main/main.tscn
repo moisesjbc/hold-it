@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://gameplay/wall/wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gameplay/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gameplay/main/main.gd" type="Script" id=3]
 [ext_resource path="res://gameplay/poop_spawn/poop_spawn.tscn" type="PackedScene" id=4]
@@ -10,19 +9,6 @@
 
 [node name="main" type="Node2D"]
 script = ExtResource( 3 )
-
-[node name="walls" type="Node2D" parent="."]
-position = Vector2( 0, -32 )
-
-[node name="left_wall" parent="walls" instance=ExtResource( 1 )]
-position = Vector2( 11, 400 )
-
-[node name="player" parent="walls/left_wall" instance=ExtResource( 2 )]
-position = Vector2( 59, 8 )
-
-[node name="right_wall" parent="walls" instance=ExtResource( 1 )]
-position = Vector2( 1243, 400 )
-scale = Vector2( -1, 1 )
 
 [node name="poop_spawn" parent="." instance=ExtResource( 4 )]
 position = Vector2( -164.258, -136 )
@@ -36,6 +22,9 @@ visible = false
 
 [node name="timer" parent="GUI" instance=ExtResource( 7 )]
 
-[connection signal="player_out_of_screen" from="walls/left_wall/player" to="." method="_on_player_player_out_of_screen"]
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 58, 375 )
+
 [connection signal="restart_game" from="GUI/game_over" to="." method="_on_game_over_restart_game"]
 [connection signal="dump_bar_full" from="GUI/dump_bar" to="." method="_on_dump_bar_dump_bar_full"]
+[connection signal="player_out_of_screen" from="player" to="." method="_on_player_player_out_of_screen"]
