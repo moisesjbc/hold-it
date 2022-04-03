@@ -15,7 +15,7 @@ func _ready():
 
 func _process(delta):
 	translate(velocity * speed * delta)
-	if global_position.y > 700:
+	if global_position.y > 850:
 		emit_signal('poop_reached_bottom', damage)
 		queue_free()
 
