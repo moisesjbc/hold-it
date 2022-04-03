@@ -16,6 +16,7 @@ func move_to(target_pos):
 	speed = 1500
 	velocity = (target_pos - global_position).normalized()
 	attach_to_new_parent(main_scene)
+	$jump_sound.play()
 
 func stop(new_parent):
 	speed = 0
