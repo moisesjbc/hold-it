@@ -1,10 +1,12 @@
 extends Control
 
+
 func _ready():
 	get_tree().paused = false
 
+
 func _on_play_button_pressed():
-	get_tree().change_scene("res://gameplay/main/main.tscn")
+	get_tree().change_scene("res://gui/tutorial_confirmation_menu/tutorial_confirmation_menu.tscn")
 
 
 func _on_credits_menu_button_pressed():

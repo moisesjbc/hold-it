@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Ubuntu-B.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://gui/menu_title/menu_title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/tutorial_confirmation_menu/tutorial_confirmation_menu.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = ExtResource( 1 )
+
+[node name="tutorial_confirmation_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="panel" type="Panel" parent="center_container"]
+margin_left = 340.0
+margin_top = 260.0
+margin_right = 940.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 600, 200 )
+
+[node name="margin_container" type="MarginContainer" parent="center_container/panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+
+[node name="vbox_container" type="VBoxContainer" parent="center_container/panel/margin_container"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 570.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 40, 40 )
+
+[node name="menu_title" parent="center_container/panel/margin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 20.0
+margin_right = 540.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Do you want to play the tutorial?"
+align = 1
+valign = 1
+
+[node name="hbox_container" type="HBoxContainer" parent="center_container/panel/margin_container/vbox_container"]
+margin_top = 79.0
+margin_right = 540.0
+margin_bottom = 119.0
+
+[node name="no_button" parent="center_container/panel/margin_container/vbox_container/hbox_container" instance=ExtResource( 3 )]
+margin_right = 98.0
+margin_bottom = 40.0
+text = "No! :'-("
+
+[node name="yes_button" parent="center_container/panel/margin_container/vbox_container/hbox_container" instance=ExtResource( 3 )]
+margin_left = 102.0
+margin_right = 540.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Yes! :-)"
+
+[node name="menu_title2" parent="center_container/panel/margin_container/vbox_container" instance=ExtResource( 2 )]
+margin_top = 123.0
+margin_right = 540.0
+margin_bottom = 140.0
+custom_fonts/font = SubResource( 1 )
+text = "No crying allowed if you select no"
+align = 1
+
+[connection signal="pressed" from="center_container/panel/margin_container/vbox_container/hbox_container/no_button" to="." method="_on_no_button_pressed"]
+[connection signal="pressed" from="center_container/panel/margin_container/vbox_container/hbox_container/yes_button" to="." method="_on_yes_button_pressed"]
