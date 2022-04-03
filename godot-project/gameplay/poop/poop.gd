@@ -20,16 +20,12 @@ func _process(delta):
 		queue_free()
 
 func divide():
-	var top_poop = instance_poop_at($ref_points/top_point)
-	var bottom_poop = instance_poop_at($ref_points/bottom_point)
-
-	if player.get_parent() == self:
-		if player.global_position.distance_to(top_poop.global_position) < player.global_position.distance_to(bottom_poop.global_position):
-			player.attach_to_new_parent(top_poop, false)
-		else:
-			player.attach_to_new_parent(bottom_poop, false)
-	
-	queue_free()
+	if player.get_parent() != self:
+		print("damage ", damage)
+		if damage > 2:
+			var top_poop = instance_poop_at($ref_points/top_point)
+			var bottom_poop = instance_poop_at($ref_points/bottom_point)
+		queue_free()
 
 func instance_poop_at(ref_point):
 	var new_poop = poop_scene.instance()

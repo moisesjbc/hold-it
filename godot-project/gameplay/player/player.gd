@@ -26,18 +26,19 @@ func stop(new_parent):
 	attach_to_new_parent(new_parent)
 	emit_signal('player_stopped')
 	
-func attach_to_new_parent(new_parent, divide=true):
+func attach_to_new_parent(new_parent):
 	changing_parent = true
-	if divide:
-		last_parent = get_parent()
-		if divide and last_parent.is_in_group('poops'):
-			last_parent.divide()
+
+	last_parent = get_parent()
 	var _global_position = global_position
 	get_parent().remove_child(self)
 	new_parent.add_child(self)
 	global_position = _global_position
-	changing_parent = false
-	if divide and new_parent.name != 'main':
+	
+	
+	if last_parent.is_in_group('poops'):
+		last_parent.divide()
+	if new_parent.name != 'main':
 		if new_parent.is_in_group('poops') and last_attached_parent_was_food:
 			food_streak += 1
 			if food_streak > 2:
@@ -45,7 +46,10 @@ func attach_to_new_parent(new_parent, divide=true):
 		else:
 			food_streak = 0
 		emit_signal('food_streak_changed', food_streak)
+	
 		last_attached_parent_was_food = new_parent.is_in_group('poops')
+		
+	changing_parent = false
 
 
 func _physics_process(delta):
