@@ -20,7 +20,7 @@ func exit():
 	$ref_shooting_line.visible = false
 	
 func input(event):
-	if event is InputEventMouseButton and can_shoot:
+	if event is InputEventMouseButton and not event.pressed and can_shoot:
 		player.move_to(event.position)
 		emit_signal('set_state', 'flying')
 
