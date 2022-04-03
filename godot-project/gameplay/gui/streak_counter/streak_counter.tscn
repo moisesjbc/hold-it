@@ -24,6 +24,7 @@ rect_min_size = Vector2( 250, 40 )
 [node name="label" type="Label" parent="panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = " Food Streak: "
+text = " Food Streak: 0"
 valign = 1

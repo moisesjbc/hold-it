@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/menu_title/menu_title.tscn" type="PackedScene" id=2]
@@ -7,10 +7,13 @@
 [ext_resource path="res://gui/how_to_play_menu/instruction/instruction.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gameplay/player/player.png" type="Texture" id=6]
 [ext_resource path="res://gameplay/poop/carrot.png" type="Texture" id=7]
+[ext_resource path="res://gameplay/acid_explosion/acid_ball/acid_ball.png" type="Texture" id=8]
+[ext_resource path="res://gui/how_to_play_menu/acid_explosion.gd" type="Script" id=9]
 
 [node name="how_to_play_menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 305, 182 )
 script = ExtResource( 4 )
 
 [node name="previous_button" parent="." instance=ExtResource( 1 )]
@@ -85,7 +88,7 @@ Your goal is to resist the longer before it reaches 100%"
 visible = false
 
 [node name="player_sprite" type="Sprite" parent="steps/player"]
-position = Vector2( 87, 415 )
+position = Vector2( 63, 415 )
 texture = ExtResource( 6 )
 
 [node name="instruction" parent="steps/player" instance=ExtResource( 5 )]
@@ -99,23 +102,166 @@ text = "< This is you"
 visible = false
 
 [node name="player_sprite" type="Sprite" parent="steps/movement"]
-position = Vector2( 87, 415 )
+position = Vector2( 63, 415 )
 texture = ExtResource( 6 )
 
 [node name="ref_line" type="Line2D" parent="steps/movement"]
-position = Vector2( -5.78761, 137.974 )
+position = Vector2( -29.7876, 137.974 )
 scale = Vector2( 1.0531, 0.657895 )
-points = PoolVector2Array( 114, 410, 330, 306 )
+points = PoolVector2Array( 114, 410, 332.151, 351.16 )
 width = 5.0
 default_color = Color( 0.419608, 1, 0.4, 1 )
 
 [node name="instruction" parent="steps/movement" instance=ExtResource( 5 )]
-margin_left = 46.0
-margin_top = 389.0
-margin_right = 741.0
-margin_bottom = 460.0
+margin_left = -26.0
+margin_top = 421.0
+margin_right = 669.0
+margin_bottom = 492.0
 text = "Move the MOUSE to aim 
 and CLICK to shoot"
+
+[node name="stick" type="Node2D" parent="steps"]
+visible = false
+
+[node name="player_sprite2" type="Sprite" parent="steps/stick"]
+position = Vector2( 608, 297 )
+texture = ExtResource( 6 )
+
+[node name="instruction" parent="steps/stick" instance=ExtResource( 5 )]
+margin_left = 209.0
+margin_top = 413.0
+margin_right = 904.0
+margin_bottom = 595.0
+text = "The character (whatever that is) will
+flight in the desired direction until it
+attaches to a wall or a food.
+Be careful! If it exits the screen, GAME OVER!"
+
+[node name="food_sprite3" type="Sprite" parent="steps/stick"]
+position = Vector2( 659, 254 )
+texture = ExtResource( 7 )
+
+[node name="split" type="Node2D" parent="steps"]
+visible = false
+
+[node name="player_sprite2" type="Sprite" parent="steps/split"]
+position = Vector2( 532, 238 )
+texture = ExtResource( 6 )
+
+[node name="food_sprite4" type="Sprite" parent="steps/split"]
+position = Vector2( 661, 190 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="food_sprite5" type="Sprite" parent="steps/split"]
+position = Vector2( 661, 326 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="instruction" parent="steps/split" instance=ExtResource( 5 )]
+margin_left = -13.0
+margin_top = 296.0
+margin_right = 682.0
+margin_bottom = 367.0
+text = "1. When the character takes off a
+food, the food is splitted in two"
+
+[node name="instruction2" parent="steps/split" instance=ExtResource( 5 )]
+margin_left = 615.0
+margin_top = 220.0
+margin_right = 1310.0
+margin_bottom = 328.0
+text = "2. But the contribution of each half
+to the bottom bar will be 1/3, so keep
+spliting the food!"
+
+[node name="food_streak" type="Node2D" parent="steps"]
+visible = false
+
+[node name="instruction" parent="steps/food_streak" instance=ExtResource( 5 )]
+margin_left = -52.0
+margin_top = 64.0
+margin_right = 643.0
+margin_bottom = 209.0
+text = "^ This is your food streak.
+Each consecutive hit on a food
+increases it by one, but hitting
+a wall with reset it to 0"
+
+[node name="acid_explosion" type="Node2D" parent="steps"]
+visible = false
+script = ExtResource( 9 )
+
+[node name="instruction" parent="steps/acid_explosion" instance=ExtResource( 5 )]
+margin_left = 566.0
+margin_top = 107.0
+margin_right = 1261.0
+margin_bottom = 289.0
+text = "If you reach a food streak of 3,
+each consecutive hit will spawn
+an acid explosion at the character's
+position, spliting all the food touched
+by it!"
+
+[node name="food_sprite5" type="Sprite" parent="steps/acid_explosion"]
+position = Vector2( 661, 326 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="food_sprite7" type="Sprite" parent="steps/acid_explosion"]
+position = Vector2( 182, 151 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="food_sprite3" type="Sprite" parent="steps/acid_explosion"]
+position = Vector2( 1409, 552 )
+texture = ExtResource( 7 )
+offset = Vector2( -530, -67 )
+
+[node name="food_sprite6" type="Sprite" parent="steps/acid_explosion"]
+position = Vector2( 748, 542 )
+texture = ExtResource( 7 )
+offset = Vector2( -530, -67 )
+
+[node name="player_sprite2" type="Sprite" parent="steps/acid_explosion"]
+position = Vector2( 396, 293 )
+texture = ExtResource( 6 )
+
+[node name="acid_ball_sprite" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( -86, -71 )
+texture = ExtResource( 8 )
+
+[node name="acid_ball_sprite2" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( -25, -120 )
+texture = ExtResource( 8 )
+
+[node name="acid_ball_sprite3" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( 48, -98 )
+texture = ExtResource( 8 )
+
+[node name="acid_ball_sprite4" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( 108, -48 )
+texture = ExtResource( 8 )
+
+[node name="acid_ball_sprite5" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( 129, 29 )
+texture = ExtResource( 8 )
+
+[node name="acid_ball_sprite6" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( 100, 107 )
+texture = ExtResource( 8 )
+
+[node name="acid_ball_sprite7" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( 26, 139 )
+texture = ExtResource( 8 )
+
+[node name="acid_ball_sprite8" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( -60, 102 )
+texture = ExtResource( 8 )
+
+[node name="acid_ball_sprite9" type="Sprite" parent="steps/acid_explosion/player_sprite2"]
+position = Vector2( -95, 26 )
+texture = ExtResource( 8 )
 
 [connection signal="pressed" from="previous_button" to="." method="_on_previous_button_pressed"]
 [connection signal="pressed" from="next_buton" to="." method="_on_next_buton_pressed"]

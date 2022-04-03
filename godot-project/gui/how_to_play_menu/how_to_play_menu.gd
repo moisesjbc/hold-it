@@ -18,6 +18,8 @@ func set_current_step_index(new_step_index):
 		
 	current_step_index = new_step_index
 	$steps.get_child(current_step_index).visible = true
+	if $steps.get_child(current_step_index).has_method('init'):
+		$steps.get_child(current_step_index).init()
 
 
 func _on_next_buton_pressed():
