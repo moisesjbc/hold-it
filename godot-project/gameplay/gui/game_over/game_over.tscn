@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gameplay/gui/game_over/game_over.gd" type="Script" id=1]
 [ext_resource path="res://gui/menu_title/menu_title.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/button/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gameplay/gui/themes/panel.tres" type="StyleBox" id=4]
 
 [node name="game_over" type="CenterContainer"]
 pause_mode = 2
@@ -16,6 +17,7 @@ margin_top = 235.0
 margin_right = 790.0
 margin_bottom = 485.0
 rect_min_size = Vector2( 300, 250 )
+custom_styles/panel = ExtResource( 4 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 anchor_right = 1.0
