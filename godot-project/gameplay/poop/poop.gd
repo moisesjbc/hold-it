@@ -10,7 +10,6 @@ var player
 
 
 func _ready():
-	$collision_shape.disabled = true
 	poop_scene = load("res://gameplay/poop/poop.tscn")
 	connect('poop_reached_bottom', main, '_on_poop_reached_bottom')
 
