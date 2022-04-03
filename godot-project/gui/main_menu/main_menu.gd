@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	randomize()
 	get_tree().paused = false
 
 func _on_play_button_pressed():
