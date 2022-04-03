@@ -21,7 +21,7 @@ func _on_spawn_timer_timeout():
 
 
 func _on_difficulty_timer_timeout():
-	min_food_speed += 50
-	max_food_speed += 50
+	min_food_speed += 10
+	max_food_speed += 10
 	if spawn_time > 0.2:
 		spawn_time -= 0.1
