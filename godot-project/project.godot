@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 walls="*res://gameplay/walls/walls.tscn"
+press_button_sound="*res://globals/press_button_sound/press_button_sound.tscn"
 
 [display]
 
