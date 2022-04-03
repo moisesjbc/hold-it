@@ -21,7 +21,6 @@ func _process(delta):
 
 func divide():
 	if player.get_parent() != self:
-		print("damage ", damage)
 		if damage > 2:
 			var top_poop = instance_poop_at($ref_points/top_point)
 			var bottom_poop = instance_poop_at($ref_points/bottom_point)
