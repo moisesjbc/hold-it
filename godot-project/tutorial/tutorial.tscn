@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://fonts/Ubuntu-B.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://tutorial/tutorial_wizard.gd" type="Script" id=2]
-[ext_resource path="res://tutorial/tutorial_steps/welcome.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -36,9 +34,3 @@ custom_fonts/font = SubResource( 1 )
 text = "Welcome!"
 align = 1
 valign = 1
-
-[node name="tutorial_wizard" type="Node2D" parent="."]
-script = ExtResource( 2 )
-
-[node name="welcome" type="Node2D" parent="tutorial_wizard"]
-script = ExtResource( 3 )

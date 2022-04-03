@@ -3,7 +3,7 @@ extends Node2D
 var player
 
 func _ready():
-	get_tree().paused = get_parent().name == 'tutorial'
+	get_tree().paused = false
 	player = $player
 	player.attach_to_new_parent(get_tree().get_root().get_node('walls').get_node('left_wall'), false)
 	player.main_scene = self
