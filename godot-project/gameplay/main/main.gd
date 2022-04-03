@@ -25,3 +25,12 @@ func _on_poop_reached_bottom(damage):
 
 func _on_GUI_dump_bar_full():
 	$GUI/game_over.display()
+
+
+func _on_GUI_main_menu():
+	get_tree().change_scene("res://gui/main_menu/main_menu.tscn")
+	
+	
+func _input(event):
+	if event is InputEventKey and event.scancode == KEY_ESCAPE:
+		$GUI/pause_menu.display()
