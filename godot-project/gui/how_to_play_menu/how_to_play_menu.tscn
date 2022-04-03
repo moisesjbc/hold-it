@@ -81,7 +81,7 @@ margin_top = 574.0
 margin_right = 1051.0
 margin_bottom = 682.0
 text = "2. ...and fill the bar below, which represents 
-the host's INEVITABLE desire to evacuate.
+the host's INEVITABLE desire to go to the toilet.
 Your goal is to resist the longer before it reaches 100%"
 
 [node name="player" type="Node2D" parent="steps"]
@@ -159,11 +159,11 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="instruction" parent="steps/split" instance=ExtResource( 5 )]
-margin_left = -13.0
+margin_left = 10.0
 margin_top = 296.0
-margin_right = 682.0
+margin_right = 705.0
 margin_bottom = 367.0
-text = "1. When the character takes off a
+text = "1. When the character takes off  from a 
 food, the food is splitted in two"
 
 [node name="instruction2" parent="steps/split" instance=ExtResource( 5 )]
